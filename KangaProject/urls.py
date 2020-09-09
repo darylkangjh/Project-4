@@ -20,4 +20,5 @@ import digitalMarketing.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('digital-marketing/', digitalMarketing.views.dmAll)
+    
 ]
