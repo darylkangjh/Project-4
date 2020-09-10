@@ -46,7 +46,9 @@ INSTALLED_APPS = [
 
     # Add my apps below
     'digitalMarketing',
-    'customer'
+    'customer',
+    # Please take note for Home, we want to display static pages of about us pages! 
+    'home'
 ]
 
 MIDDLEWARE = [
