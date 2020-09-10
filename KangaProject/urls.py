@@ -18,6 +18,7 @@ from django.urls import path, include
 import digitalMarketing.views
 
 urlpatterns = [
+    path('',include('home.urls')),
     path('admin/', admin.site.urls),
     path('digital-marketing/', digitalMarketing.views.dmAll)
     
