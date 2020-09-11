@@ -90,7 +90,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-SITE_ID: 1
+SITE_ID= 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -102,7 +102,7 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/success'
 
 WSGI_APPLICATION = 'KangaProject.wsgi.application'
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
