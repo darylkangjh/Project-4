@@ -1,18 +1,11 @@
+{% extends 'base.template.html' %}
 {%load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Document</title>
-</head>
-<body>
+{%block content%}
+<h1>This is Home, Trully</h1>
 	{% if request.user.is_authenticated  %}
 	<p>Welcome {{request.user}}</p>
 	{% else %}
 	<p>Please <a href="/accounts/login">Login</a></p>
 	{%endif%}
-</body>
-</html>
+{%endblock%}
