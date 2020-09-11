@@ -22,5 +22,4 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('digital-marketing/', digitalMarketing.views.dmAll)
-    
 ]

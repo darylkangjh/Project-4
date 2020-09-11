@@ -1,6 +1,6 @@
-from django import forms 
+from django import forms
 from allauth.account.forms import SignupForm
-from .models import Profile
+from .models import Customer
 
 
 class CustomSignupForm(SignupForm):
@@ -10,14 +10,11 @@ class CustomSignupForm(SignupForm):
     
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        profile = Profile()
-        profile.name = self.cleaned_data ['name']
-        profile.company = self.cleaned_data ['company']
-        profile.created_on = self.cleaned_data ['created_on']
-        profile.user = user
-        profile.save()
+        customer = Customer()
+        customer.name = self.cleaned_data['name']
+        customer.company = self.cleaned_data['company']
+        customer.created_on = self.cleaned_data['created_on']
+        customer.user = user
+        customer.save()
 
         return user
-
-
-
