@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import digitalMarketing.views
+import customer.views
 
 urlpatterns = [
     path('',include('home.urls')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
-    path('digital-marketing/', digitalMarketing.views.dmAll)
+    path('digital-marketing/', digitalMarketing.views.dmAll),
+    path('all-customer/',  customer.views.allCustomer)
 ]
