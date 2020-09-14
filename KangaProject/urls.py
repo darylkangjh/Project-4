@@ -19,9 +19,9 @@ import digitalMarketing.views
 import customer.views
 
 urlpatterns = [
-    path('',include('home.urls')),
+    path('', include('home.urls')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
-    path('digital-marketing/', digitalMarketing.views.dmAll),
-    path('all-customer/',  customer.views.allCustomer)
+    path('all-customer/',  customer.views.allCustomer),
+    path('dmservice/create', digitalMarketing.views.create_DMService)
 ]
