@@ -41,7 +41,8 @@ class DMService(models.Model):
     long_desc = models.TextField(blank=False)
     availability = models.BooleanField(blank=False)
     # Take note that discounts are optional
-    # and only given to people who knows the code.
+
+    # Many to many field below.    
     discount = models.ManyToManyField('Discount')
     tag = models.ManyToManyField('Tag')
     category = models.ManyToManyField('Category')
@@ -61,7 +62,8 @@ class DAService(models.Model):
     stock = models.PositiveIntegerField(blank=False)
     availability = models.BooleanField(blank=False)
     # Take note that discounts are optional and only given to
-    # people who knows the code.
+
+    # Many to many field below. 
     discount = models.ManyToManyField('Discount')
     tag = models.ManyToManyField('Tag')
     category = models.ManyToManyField('Category')
