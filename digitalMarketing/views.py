@@ -15,6 +15,11 @@ def create_DMService(request):
 
 # DAServices Views here
 #!!!... Create route for DaServices
+def create_DAService(request):
+    create_form = DAServiceForm()
+    return render(request, 'digitalMarketing/create_daservice.template.html', {
+        'form':create_form
+    })
 
 # 02. E-Commerce show all products!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
