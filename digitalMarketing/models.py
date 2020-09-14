@@ -42,10 +42,9 @@ class DMService(models.Model):
     availability = models.BooleanField(blank=False)
     # Take note that discounts are optional
     # and only given to people who knows the code.
-    discount = models.ForeignKey(
-        Discount, blank=True, null=True, on_delete=models.SET_NULL)
-    tag = models.ManyToManyField('tag')
-    category = models.ManyToManyField('category')
+    discount = models.ManyToManyField('Discount')
+    tag = models.ManyToManyField('Tag')
+    category = models.ManyToManyField('Category')
 
     def __str__(self):
         return self.item_name
@@ -63,10 +62,9 @@ class DAService(models.Model):
     availability = models.BooleanField(blank=False)
     # Take note that discounts are optional and only given to
     # people who knows the code.
-    discount = models.ForeignKey(
-        Discount, blank=True, null=True, on_delete=models.SET_NULL)
-    tag = models.ManyToManyField('tag')
-    category = models.ManyToManyField('category')
+    discount = models.ManyToManyField('Discount')
+    tag = models.ManyToManyField('Tag')
+    category = models.ManyToManyField('Category')
 
     def __str__(self):
         return self.item_name
