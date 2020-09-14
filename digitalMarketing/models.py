@@ -11,12 +11,6 @@ class Category(models.Model):
         return self.category
 
 
-class Tag(models.Model):
-    tag = models.CharField(blank=False, max_length=255)
-
-    def __str__(self):
-        return self.tag
-
 # !!! ...Dicounts creation for all services (users may input their )
 
 
@@ -44,7 +38,7 @@ class DMService(models.Model):
 
     # Many to many field below.    
     discount = models.ManyToManyField('Discount')
-    tag = models.ManyToManyField('Tag')
+    tag = TaggableManager()
     category = models.ManyToManyField('Category')
 
     def __str__(self):
@@ -65,7 +59,7 @@ class DAService(models.Model):
 
     # Many to many field below. 
     discount = models.ManyToManyField('Discount')
-    tag = models.ManyToManyField('Tag')
+    tag = TaggableManager()
     category = models.ManyToManyField('Category')
 
     def __str__(self):

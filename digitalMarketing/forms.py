@@ -1,5 +1,5 @@
 from django import forms
-from .models import DMService, Discount, DAService, Category, Tag
+from .models import DMService, Discount, DAService, Category
 
 
 class DMServiceForm(forms.ModelForm):
