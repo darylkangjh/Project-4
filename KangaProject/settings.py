@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'taggit',
     # Add my apps below
     'digitalMarketing',
     'customer',
