@@ -6,11 +6,13 @@ class DMServiceForm(forms.ModelForm):
     class Meta:
         model = DMService
         fields = ('item_name', 'price', 'short_desc',
-                  'long_desc', 'availability')
+                  'long_desc', 'availability', 'discount', 'tag', 'category')
+
 
 class DAServiceForm(forms.ModelForm):
     class Meta:
         model = DAService
         fields = ('item_name', 'price', 'short_desc',
-                  'long_desc', 'stock', 'availability')
+                  'long_desc', 'stock', 'availability',
+                  'discount', 'tag', 'category')
 

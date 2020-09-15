@@ -1,0 +1,16 @@
+{% extends "base.template.html" %}
+
+{% block content %}
+
+<h2>Design Assets to choose from</h2>
+        {%for x in DAService %}
+        <li>{{x.title}}</li>
+        {%endfor%}
+
+
+<h2>Design Services to choose from</h2>
+        {%for x in DMService %}
+        <li>{{x.title}}</li>
+        {%endfor%}
+
+{% endblock %}

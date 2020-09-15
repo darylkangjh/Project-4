@@ -37,9 +37,9 @@ class DMService(models.Model):
     # Take note that discounts are optional
 
     # Many to many field below.    
-    discount = models.ManyToManyField('Discount')
-    tag = TaggableManager()
-    category = models.ManyToManyField('Category')
+    discount = models.ManyToManyField('Discount', blank=True)
+    tag = TaggableManager(blank=True)
+    category = models.ManyToManyField('Category', blank=True)
 
     def __str__(self):
         return self.item_name
@@ -58,9 +58,9 @@ class DAService(models.Model):
     # Take note that discounts are optional and only given to
 
     # Many to many field below. 
-    discount = models.ManyToManyField('Discount')
-    tag = TaggableManager()
-    category = models.ManyToManyField('Category')
+    discount = models.ManyToManyField('Discount', blank=True)
+    tag = TaggableManager(blank=True)
+    category = models.ManyToManyField('Category', blank=True)
 
     def __str__(self):
         return self.item_name

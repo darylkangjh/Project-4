@@ -16,3 +16,9 @@ class DAServicesTestCase(TestCase):
     def test_can_get_DAService_form(self):
         response = self.client.get('/daservice/create')
         self.assertEqual(response.status_code, 200)
+
+class ShowAllPageTestCase(TestCase):
+
+    def test_can_get_all_services_page(self):
+        response = self.client.get('/services/all')
+        self.assertEqual(response.status_code, 200)
