@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
 from .forms import DMServiceForm, DAServiceForm
-from .models import DMService
+from .models import DMService, DAService
 
 # Create your views here.
 # DmServices Views here 
@@ -9,8 +9,10 @@ from .models import DMService
 def all_service(request):
 
     DMServices = DMService.objects.all()
+    DAServices = DAService.objects.all()
     return render(request, 'digitalMarketing/all_services.template.html', {
         'DMServices': DMServices,
+        'DAServices': DAServices
     })
 
 
