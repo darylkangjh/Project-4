@@ -1,21 +1,18 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
 from .forms import DMServiceForm, DAServiceForm
-from .models import DMService, DAService
+from .models import DMService
 
 # Create your views here.
 # DmServices Views here 
 
-def all_DMService(request):
-    DMService = DMService.objects.all()
-    return render(request, 'all_services.template.html', {
-        'DMService': DMService
+
+def all_service(request):
+
+    DMServices = DMService.objects.all()
+    return render(request, 'digitalMarketing/all_services.template.html', {
+        'DMServices': DMServices,
     })
 
-def all_DAService(request):
-    DAService = DAService.objects.all()
-    return render(request, 'all_services.template.html', {
-        'DAService': DAService
-    })
 
 # !!! ... Create route for DMServices
 def create_DMService(request):

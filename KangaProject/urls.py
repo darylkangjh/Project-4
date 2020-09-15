@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('all-customer/',  customer.views.allCustomer),
     path('dmservice/create', digitalMarketing.views.create_DMService),
-    path('daservice/create', digitalMarketing.views.create_DAService)
+    path('daservice/create', digitalMarketing.views.create_DAService),
+    path('services/all', digitalMarketing.views.all_service)
 ]
