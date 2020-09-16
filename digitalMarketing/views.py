@@ -45,7 +45,7 @@ def update_DMService(request, DMService_id):
 
     else:
         dmservice_form = DMServiceForm(request.POST, instance=dm_being_updated)
-        return render(request, 'update_dmservice.template.html',  {
+        return render(request, 'digitalMarketing/update_dmservice.template.html',  {
             "form": dmservice_form
         })
 
