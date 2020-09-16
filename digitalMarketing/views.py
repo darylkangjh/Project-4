@@ -18,15 +18,16 @@ def all_service(request):
 # !!! ... Create route for DMServices
 def create_DMService(request):
     if request.method == 'POST':
-        create_form = DMServiceForm()
+        create_form = DMServiceForm(request.POST)
 
         if create_form.is_valid():
-            return redirect(reverse(all_services))
+            create_form.save()
+            return redirect(reverse(all_service))
 
         else:
             return render(request, 'digitalMarketing/create_dmservice.template.html', {
-            'form': create_form
-        })
+                'form': create_form
+            })
     
     else:
         create_form = DMServiceForm()
@@ -35,31 +36,18 @@ def create_DMService(request):
 
 
 def update_DMService(request, DMService_id):
+    dm_being_updated = get_object_or_404(DMService, pk=DMService_id)
     if request.method == "POST":
-        # 1. retrieve the book that is being updated
-        DMService_being_updated = get_object_or_404(DMService, pk=DMService_id)
+        dmservice_form = DMServiceForm(request.POST, instance=dm_being_updated)
+        if dmservice_form.is_valid():
+            dmservice_form.save()
+            return redirect(reverse(all_service))
 
-        # 2. do the modification
-        DMServiceForm = DMServiceForm(request.POST, instance=book_being_updated)
-
-        # 3. save if the form is valid
-        if book_form.is_valid():
-            book_form.save()
-
-            # 4. redirect
-            return redirect(reverse(index))
     else:
-        # 1. retrieve the book that we are editing
-        book_being_updated = get_object_or_404(Book, pk=book_id)
-
-        # 2. create the form containing the existing book's book data
-        form = BookForm(instance=book_being_updated)
-
-        # 3. display the form in a template
-        return render(request, 'books/update_book.template.html', {
-            'form': form
+        dmservice_form = DMServiceForm(request.POST, instance=dm_being_updated)
+        return render(request, 'update_dmservice.template.html',  {
+            "form": dmservice_form
         })
-
 
 
 # DAServices Views here

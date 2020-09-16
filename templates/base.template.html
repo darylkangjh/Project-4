@@ -14,6 +14,7 @@
     
     <!-- My Own CSS -->
     
+    <!-- !!! Navbar start -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">Navbar</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,12 +32,12 @@
 					<a class="nav-link" href="#">Portfolio</a>
 				</li>
 
-                <!-- Drop down menu will only be available to admin to access -->
+                <!-- Drop down menu will only be available to admin (superuser) to access -->
                 {% if request.user.is_superuser %}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown link
+						Admin Panel
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="#">Action</a>
@@ -49,7 +50,7 @@
 			</ul>
 		</div>
 	</nav>
-
+    <!-- !!! Navbar end -->
 
     <title>{%block title%}{%endblock%}</title>
   </head>

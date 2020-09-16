@@ -18,13 +18,26 @@ from django.urls import path, include
 import digitalMarketing.views
 import customer.views
 
+# remember to name the route's patterns so we can link to navbar!
 urlpatterns = [
-    path('', include('home.urls')),
-    path('services/all', digitalMarketing.views.all_service),
+    # !!!! Indexed on NavBar for all to access
+    path('', include('home.urls'), name='index'),
+    path('services/all', digitalMarketing.views.all_service,
+         name='all_services'),
+
+    # path (to sign up)
+    # if login in 'logout'. If logout 'login or signup'
+# -------------------------------------------------------------------
+    # !!!! Accessible only if user log in 
+    # path('cart')
+    # path('checkout')
+    # path('user own page')
+# -------------------------------------------------------------------   
+    # !!!! Accessible only for super user (admin)
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('all-customer/',  customer.views.allCustomer),
     path('dmservice/create', digitalMarketing.views.create_DMService),
+    path('dmservice/update/<DMService_id>', digitalMarketing.views.update_DMService, name = 'update_dmservice'),
     path('daservice/create', digitalMarketing.views.create_DAService)
-
 ]

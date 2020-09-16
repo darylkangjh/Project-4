@@ -1,11 +1,14 @@
 {% extends "base.template.html" %}
 
 {% block content %}
-
+{% load static%}
 <h1>TEST</h1>
 <h2>Design Services to choose from</h2>
         {%for x in DMServices %}
-        <li>{{x.item_name}}</li>
+        <li>
+        {{x.item_name}} 
+        <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
+        </li>
         {%endfor%}
 
 <br/>
@@ -28,11 +31,11 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                        {%for x in DAServices %}
+                    {%for x in DAServices %}
                      <div class="col-sm-3">
                         <div class="col-item">
                             <div class="photo">
-                                    <img src="#" class="img-responsive" alt="a" />
+                                    <img src="{% static 'KangaProject/300.png' %}" class="img-responsive" alt="a" />
                             </div>
                              <div class="info">
                                     <div class="row">
@@ -52,7 +55,7 @@
                             </div>
                         </div>
                      </div>
-                             {%endfor%}
+                    {%endfor%}
                 </div>
             </div>
         </div>
