@@ -42,9 +42,13 @@ def update_DMService(request, DMService_id):
         if dmservice_form.is_valid():
             dmservice_form.save()
             return redirect(reverse(all_service))
+        else:
+            return render(request, 'digitalMarketing/update_dmservice.template.html', {
+            "form": dmservice_form
+        })
 
     else:
-        dmservice_form = DMServiceForm(request.POST, instance=dm_being_updated)
+        dmservice_form = DMServiceForm(instance=dm_being_updated)
         return render(request, 'digitalMarketing/update_dmservice.template.html',  {
             "form": dmservice_form
         })
