@@ -3,41 +3,25 @@
 {% block content %}
 {% load static%}
 <h1>TEST</h1>
-<h2>Design Services to choose from</h2>
+<h2>Digital Marketing Services to choose from</h2>
         {%for x in DMServices %}
         <li>
         {{x.item_name}} 
         <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
-        <a href="{% url 'update_dmservice' DMService_id=x.id%}">Delete</a>
+        <a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
         </li>
         {%endfor%}
 
 <br/>
 <!-- Control Line for slider DAServices  -->
-<div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <h3> Design Assets to choose from</h3>
-            </div>
-            <div class="col-md-3">
-                <!-- Controls -->
-                <div class="controls pull-right hidden-xs">
-                    <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
-                        data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
-                            data-slide="next"></a>
-                </div>
-            </div>
-        </div>
-            <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="item active">
+<h2>Digital Assets to choose from</h2>
                 <div class="row">
                     {%for x in DAServices %}
                      <div class="col-sm-3">
                         <div class="col-item">
-                            <div class="photo">
+                            <!-- <div class="photo">
                                     <img src="{% static 'KangaProject/300.png' %}" class="img-responsive" alt="a" />
-                            </div>
+                            </div> -->
                              <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
@@ -50,6 +34,14 @@
                                             <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a></p>
                                         <p class="btn-details">
                                             <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a></p>
+                                        
+                                        {% if request.user.is_superuser %}
+                                        <p class="btn-edit">
+                                            <i class="fa fa-pencil"></i><a href="#" class="hidden-sm">Edit</a></p>
+                                        <p class="btn-delete">
+                                            <i class="fa fa-trash-o"></i><a href="#" class="hidden-sm">Delete</a></p>
+
+                                        {% endif %}
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -58,10 +50,5 @@
                      </div>
                     {%endfor%}
                 </div>
-            </div>
-        </div>
-        </div>
-
-</div>
 
 {% endblock %}

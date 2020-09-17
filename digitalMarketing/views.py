@@ -54,13 +54,13 @@ def update_DMService(request, DMService_id):
         })
 
 def delete_DMService(request, DMService_id):
-    dms_to_delete = get_object_or_404(DMService_id)
+    dms_to_delete = get_object_or_404(DMService, pk=DMService_id)
     if request.method == 'POST':
         dms_to_delete.delete()
         return redirect(all_service)
     else:
         return render(request, 'digitalMarketing/delete_dmservice.template.html', {
-                "dmservice": dms_to_delete
+                "DMServices": dms_to_delete
             })
 
 # DAServices Views here
