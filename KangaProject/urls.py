@@ -39,5 +39,6 @@ urlpatterns = [
     path('all-customer/',  customer.views.allCustomer, name='user_list'),
     path('dmservice/create', digitalMarketing.views.create_DMService, name = 'create_dmservice'),
     path('dmservice/update/<DMService_id>', digitalMarketing.views.update_DMService, name = 'update_dmservice'),
+    path('dmservice/delete/<DMService_id>', digitalMarketing.views.delete_DMService, name = 'delete_dmservice'),   
     path('daservice/create', digitalMarketing.views.create_DAService, name = 'create_daservice')
 ]
