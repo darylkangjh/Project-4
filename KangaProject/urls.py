@@ -21,7 +21,7 @@ import customer.views
 # remember to name the route's patterns so we can link to navbar!
 urlpatterns = [
     # !!!! Indexed on NavBar for all to access
-    path('', include('home.urls'), name='index'),
+    path('', include('home.urls')),
     path('services/all', digitalMarketing.views.all_service,
          name='all_services'),
 
@@ -35,9 +35,9 @@ urlpatterns = [
 # -------------------------------------------------------------------   
     # !!!! Accessible only for super user (admin)
     path('accounts/', include('allauth.urls')),
-    path('admin/', admin.site.urls),
-    path('all-customer/',  customer.views.allCustomer),
-    path('dmservice/create', digitalMarketing.views.create_DMService),
+    path('admin/', admin.site.urls, name='dashboard'),
+    path('all-customer/',  customer.views.allCustomer, name='user_list'),
+    path('dmservice/create', digitalMarketing.views.create_DMService, name = 'create_dmservice'),
     path('dmservice/update/<DMService_id>', digitalMarketing.views.update_DMService, name = 'update_dmservice'),
-    path('daservice/create', digitalMarketing.views.create_DAService)
+    path('daservice/create', digitalMarketing.views.create_DAService, name = 'create_daservice')
 ]
