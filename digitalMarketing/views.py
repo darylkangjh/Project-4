@@ -53,6 +53,11 @@ def update_DMService(request, DMService_id):
             "form": dmservice_form
         })
 
+def delete_DMService(request, DMService_id):
+    dms_to_delete = get_object_or_404(DMService_id)
+    return render(request, 'digitalMarketing/delete_dmservice.template.html', {
+            "dmservice": dms_to_delete
+        })
 
 # DAServices Views here
 #!!!... Create route for DaServices

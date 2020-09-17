@@ -11,6 +11,12 @@ class DMServicesTestCase(TestCase):
         response = self.client.get('/dmservice/create')
         self.assertEqual(response.status_code, 200)
 
+class DMServicesDeleteTestCase(TestCase):
+
+    def test_can_get_DMService_delete(self):
+        response = self.client.get('/dmservice/delete')
+        self.assertEqual(response.status_code, 200)
+
 class DAServicesTestCase(TestCase):
 
     def test_can_get_DAService_form(self):
@@ -22,3 +28,5 @@ class ShowAllPageTestCase(TestCase):
     def test_can_get_all_services_page(self):
         response = self.client.get('/services/all')
         self.assertEqual(response.status_code, 200)
+
+
