@@ -28,28 +28,14 @@
 	<div class="container">
 
 		<div class="intro-banner-wrap">
-			<div style="background-color:red; height:130px; width: 520;"></div>
+			<div style="background-color:red; height:200px; width: 520;"></div>
 		</div>
         </br>
-        <h2>Products</h2>
 	</div> <!-- container //  -->
 </section>
  <!-- !!! Banner  -->
 </section>
 <!-- Jumbotron -->
-
-<section>
-
-        {%for x in DMServices %}
-        <li>
-        {{x.item_name}} 
-        <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
-        <a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
-        </li>
-        {%endfor%}
-
-<br/>
-</section>
 <section class="section-content">
 <div class="container">
 
@@ -60,25 +46,26 @@
 <section>
     <div>
         <div class="row">
+            {%for x in DMServices %}
             <div class="col-md-3">
-        {%for x in DMServices %}
                 <div href="#" class="card card-product-grid">
                     <a href="#" class="img-wrap"> <img src="images/items/1.jpg"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">{{x.item_name}} </a>
 						<div class="price mt-1">${{x.price}}</div>
                         {% if request.user.is_superuser %}
-						<a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
-						<a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
-                        {% else %}
-						<a href="#">Add to cart</a>
-						<a href="#">Details</a>
-                        {% endif %}
+                            <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
+                            <a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
+                            {% else %}
+                            <a href="#">Add to cart</a>
+                            <a href="#">Details</a>
+                            {% endif %}
                     </figcaption>
                 </div>
+
             </div> 
+            {%endfor%}
         </div> 
-        {%endfor%}
     </div> 
 </section>
 {% endblock %}

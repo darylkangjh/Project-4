@@ -1,7 +1,7 @@
-{% extends "openid/base.html" %}
+{% extends "base.template.html" %}
 
 {% load i18n %}
-
+{%load crispy_forms_tags %}
 {% block head_title %}OpenID Sign In{% endblock %}
 
 {% block content %}
@@ -11,8 +11,8 @@
 
 <form id="openid_login_form" class="openid_login" method="post" action="{% url 'openid_login' %}">
 {% csrf_token %}
-{{form.as_p}}
-<button type="submit">Sign In</button>
+{{ form|crispy }}
+<button type="submit" class="btn btn-success">Sign In</button>
 </form>
 
 {% endblock %}
