@@ -2,8 +2,44 @@
 
 {% block content %}
 {% load static%}
-<h1>TEST</h1>
-<h2>Digital Marketing Services to choose from</h2>
+<br/>
+<!-- !!!! Search Bar  -->
+<header class="section-header">
+<div class="col-lg-6 col-12 col-sm-12">
+    <form action="#" class="search">
+        <div class="input-group w-100">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</header>
+<!-- !!!! Search Bar  -->
+
+<!-- Jumbotron -->
+<section>
+<br/>
+ <!-- !!! Banner -->
+<section class="section-intro padding-y-sm">
+	<div class="container">
+
+		<div class="intro-banner-wrap">
+			<div style="background-color:red; height:130px; width: 520;"></div>
+		</div>
+        </br>
+        <h2>Products</h2>
+	</div> <!-- container //  -->
+</section>
+ <!-- !!! Banner  -->
+</section>
+<!-- Jumbotron -->
+
+<section>
+
         {%for x in DMServices %}
         <li>
         {{x.item_name}} 
@@ -13,42 +49,36 @@
         {%endfor%}
 
 <br/>
-<!-- Control Line for slider DAServices  -->
-<h2>Digital Assets to choose from</h2>
-                <div class="row">
-                    {%for x in DAServices %}
-                     <div class="col-sm-3">
-                        <div class="col-item">
-                            <!-- <div class="photo">
-                                    <img src="{% static 'KangaProject/300.png' %}" class="img-responsive" alt="a" />
-                            </div> -->
-                             <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>{{x.item_name}}</h5>
-                                            <small class="price-text-color">${{x.price}}</small>
-                                        </div>
-                                    </div>
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a></p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a></p>
-                                        
-                                        {% if request.user.is_superuser %}
-                                        <p class="btn-edit">
-                                            <i class="fa fa-pencil"></i><a href="#" class="hidden-sm">Edit</a></p>
-                                        <p class="btn-delete">
-                                            <i class="fa fa-trash-o"></i><a href="#" class="hidden-sm">Delete</a></p>
+</section>
+<section class="section-content">
+<div class="container">
 
-                                        {% endif %}
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                            </div>
-                        </div>
-                     </div>
-                    {%endfor%}
+<header class="section-heading">
+	<h3 class="section-title">Popular products</h3>
+</header><!-- sect-heading -->
+
+<section>
+    <div>
+        <div class="row">
+            <div class="col-md-3">
+        {%for x in DMServices %}
+                <div href="#" class="card card-product-grid">
+                    <a href="#" class="img-wrap"> <img src="images/items/1.jpg"> </a>
+                    <figcaption class="info-wrap">
+                        <a href="#" class="title">{{x.item_name}} </a>
+						<div class="price mt-1">${{x.price}}</div>
+                        {% if request.user.is_superuser %}
+						<a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
+						<a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
+                        {% else %}
+						<a href="#">Add to cart</a>
+						<a href="#">Details</a>
+                        {% endif %}
+                    </figcaption>
                 </div>
-
+            </div> 
+        </div> 
+        {%endfor%}
+    </div> 
+</section>
 {% endblock %}
