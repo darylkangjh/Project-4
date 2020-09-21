@@ -56,6 +56,7 @@
                         {% if request.user.is_superuser %}
                             <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
                             <a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
+                            <a href="{% url 'add_to_cart' DMService_id=x.id%}">Add to cart</a>
                             {% else %}
                             <a href="#">Add to cart</a>
                             <a href="#">Details</a>

@@ -29,7 +29,7 @@ urlpatterns = [
     # if login in 'logout'. If logout 'login or signup'
 # -------------------------------------------------------------------
     # !!!! Accessible only if user log in 
-    # path('cart')
+    path('cart/', include('cart.urls')),
     # path('checkout')
     # path('user own page')
 # -------------------------------------------------------------------   
