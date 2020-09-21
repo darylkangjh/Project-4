@@ -49,10 +49,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'taggit',
+    'cloudinary',
     # Add my apps below
     'digitalMarketing',
     'customer',
-    'home'
+    'home',
+    'cart'
 ]
 
 MIDDLEWARE = [
@@ -160,3 +162,9 @@ STATICFILES_DIRS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CLOUDINARY = {
+    'cloud_name': os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    'api_key': os.environ.get("CLOUDINARY_API_KEY"),
+    'api_secret': os.environ.get("CLOUDINARY_API_SECRET"),
+}
