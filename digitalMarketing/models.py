@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -19,7 +20,7 @@ class Discount(models.Model):
     discount_price = models.PositiveIntegerField(blank=False)
     start_date = models.DateTimeField(blank=False)
     end_date = models.DateTimeField(blank=False)
-
+    cover = CloudinaryField()
     def __str__(self):
         return self.coupon
 
@@ -40,6 +41,9 @@ class DMService(models.Model):
     discount = models.ManyToManyField('Discount', blank=True)
     tag = TaggableManager(blank=True)
     category = models.ManyToManyField('Category', blank=True)
+
+    # image field
+    cover = CloudinaryField()
 
     def __str__(self):
         return self.item_name
@@ -62,6 +66,9 @@ class DAService(models.Model):
     tag = TaggableManager(blank=True)
     category = models.ManyToManyField('Category', blank=True)
 
+    # image field
+    cover = CloudinaryField()
+    
     def __str__(self):
         return self.item_name
 
