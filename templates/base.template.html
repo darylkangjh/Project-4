@@ -31,6 +31,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Portfolio</a>
                         </li>
+                        <a href="{% url 'view_cart' %}">Shopping Cart ({{number_of_items}})</a>
                         <!-- Drop down menu will only be available to admin (superuser) to access -->
                         {% if request.user.is_superuser %}
                         <li class="nav-item dropdown">

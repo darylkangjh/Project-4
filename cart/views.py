@@ -3,10 +3,12 @@ from django.contrib import messages
 from digitalMarketing.models import DMService
 
 # Create your views here.
-def add_to_cart(request, DMService_id):
-    cart = request.session.get('shopping_cart',{})
 
-    if DMService_id not in cart: 
+
+def add_to_cart(request, DMService_id):
+    cart = request.session.get('shopping_cart', {})
+
+    if DMService_id not in cart:
         dmservice = get_object_or_404(DMService, pk=DMService_id)
         cart[DMService_id] = {
             'id': DMService_id,
@@ -14,19 +16,40 @@ def add_to_cart(request, DMService_id):
             'price': 99,
             'qty': 1
         }
-        
-        request.session['shopping_cart']=cart
+
+        request.session['shopping_cart'] = cart
         messages.success(request, "Services has been added to your cart!")
-        return redirect(reverse('DMService.views.all_service'))
-    
+        return redirect(reverse('all_services'))
+
     else:
         cart[DMService_id]['qty'] += 1
         request.session['shopping_cart'] = cart
-        return redirect(reverse('DMService.views.all_service'))
+        return redirect(reverse('all_services'))
+
 
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
 
-    return render(request, 'cart/view_cart.template.html',{
-        'shopping_cart':cart
+    return render(request, 'cart/view_cart.template.html', {
+        'shopping_cart': cart,
     })
+
+
+def remove_from_cart(request, DMService_id):
+    cart = request.session.get('shopping_cart', {})
+
+    if DMService_id in cart:
+        del cart[DMService_id]
+        request.session['shopping_cart'] = cart
+
+    return redirect(reverse('view_cart'))
+
+
+def update_quantity(request, DMService_id):
+    cart = request.session.get('shopping_cart')
+    if DMService_id in cart:
+        cart[DMService_id]['qty'] = request.POST['qty']
+        request.session['shopping_cart'] = cart
+        messages.success(
+            request, f"Quantity changed for {cart[DMService_id]['item_name']}")
+        return redirect(reverse('view_cart'))

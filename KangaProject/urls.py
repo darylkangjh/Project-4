@@ -18,6 +18,7 @@ from django.urls import path, include
 import digitalMarketing.views
 import customer.views
 
+
 # remember to name the route's patterns so we can link to navbar!
 urlpatterns = [
     # !!!! Indexed on NavBar for all to access
