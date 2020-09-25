@@ -14,7 +14,6 @@ def add_to_cart(request, DMService_id):
             'id': DMService_id,
             'item_name': dmservice.item_name,
             'price': 99,
-            'qty': 1
         }
 
         request.session['shopping_cart'] = cart
@@ -22,7 +21,6 @@ def add_to_cart(request, DMService_id):
         return redirect(reverse('all_services'))
 
     else:
-        cart[DMService_id]['qty'] += 1
         request.session['shopping_cart'] = cart
         return redirect(reverse('all_services'))
 
@@ -43,13 +41,3 @@ def remove_from_cart(request, DMService_id):
         request.session['shopping_cart'] = cart
 
     return redirect(reverse('view_cart'))
-
-
-def update_quantity(request, DMService_id):
-    cart = request.session.get('shopping_cart')
-    if DMService_id in cart:
-        cart[DMService_id]['qty'] = request.POST['qty']
-        request.session['shopping_cart'] = cart
-        messages.success(
-            request, f"Quantity changed for {cart[DMService_id]['item_name']}")
-        return redirect(reverse('view_cart'))

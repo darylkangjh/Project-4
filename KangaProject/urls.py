@@ -31,7 +31,7 @@ urlpatterns = [
 # -------------------------------------------------------------------
     # !!!! Accessible only if user log in 
     path('cart/', include('cart.urls')),
-    # path('checkout')
+    path('checkout/', include('checkout.urls')),
     # path('user own page')
 # -------------------------------------------------------------------   
     # !!!! Accessible only for super user (admin)
