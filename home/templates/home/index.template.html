@@ -2,9 +2,9 @@
 {%load static %}
 
 {%block content%}
-<h1>This is Home, Trully</h1>
+<h1 class="index-title">This is Home, Trully</h1>
 	{% if request.user.is_authenticated  %}
-	<p>Welcome {{request.user}}</p>
+	<p class="index-paragraph">Welcome {{request.user}}</p>
 	{% else %}
 	<p>Please <a href="/accounts/login">Login</a></p>
 	{%endif%}

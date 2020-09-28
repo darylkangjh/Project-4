@@ -1,0 +1,19 @@
+.nav-link {
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 200!important;
+}
+
+.navbar-brand{
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.index-title{
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 900;
+}
+.index-paragraph{
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 900;
+}

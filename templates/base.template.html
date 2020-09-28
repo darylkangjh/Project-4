@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,16 +8,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Own styles.css -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- Bootsnip thnk you for the carousell slider css -->
     <link rel="stylesheet" href="carousel.css">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;900&display=swap" rel="stylesheet">
 
     
     <!-- My Own CSS -->
     <!-- !!! Navbar start -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'index' %}">Navbar</a>
+                <a class="navbar-brand" href="{% url 'index' %}">KANGA</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
