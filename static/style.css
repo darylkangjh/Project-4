@@ -2,18 +2,39 @@
     font-family: 'Roboto', sans-serif!important;
     font-weight: 200!important;
 }
+.nav-link :hover {
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 200!important;
+    color: #FFB000!important;
+
+}
 
 .navbar-brand{
     font-family: 'Roboto', sans-serif!important;
     font-weight: 900;
     font-size: 40px;
+    color: #FFB000!important;
 }
 
 .index-title{
     font-family: 'Roboto', sans-serif!important;
     font-weight: 900;
+    
 }
 .index-paragraph{
     font-family: 'Roboto', sans-serif!important;
     font-weight: 900;
+}
+
+.index-title-white{
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 900;
+    color:white!important;
+    
+}
+
+
+/* Shift effect */
+nav.shift ul li a:hover {
+  color: #FFB000!important;
 }
