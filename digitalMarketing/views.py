@@ -1,19 +1,39 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
-from .forms import DMServiceForm, DAServiceForm
+from .forms import DMServiceForm, DAServiceForm, SearchForm
 from .models import DMService, DAService
 from django.contrib import messages
-
+from django.db.models import Q
 # Create your views here.
 # All Views here 
 
 def all_service(request):
+    # if request.GET:
+    #         queries = ~Q(pk__in=[])
 
+    #         # if a title is specified, add it to the query
+    #         if 'item_name' in request.GET and request.GET['item_name']:
+    #             item_name = request.GET['item_name']
+    #             queries = queries & Q(item_name__icontains=item_name)
+
+    #         # if a genre is specified, add it to the query
+    #         if 'category' in request.GET and request.GET['category']:
+    #             print("adding category")
+    #             category = request.GET['category']
+    #             queries = queries & Q(category__in=category)
+
+    #         # update the existing book found
+    #         dmservice = DMService.filter(queries)
+
+
+    # search_form=SearchForm(request.GET)
     DMServices = DMService.objects.all()
     DAServices = DAService.objects.all()
     return render(request, 'digitalMarketing/all_services.template.html', {
         'DMServices': DMServices,
         'DAServices': DAServices,
+        # 'search_form': search_form,
     })
+
 
 
 # !!! ... Create route for DMServices
