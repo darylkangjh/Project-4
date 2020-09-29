@@ -12,7 +12,7 @@ def all_service(request):
     DAServices = DAService.objects.all()
     return render(request, 'digitalMarketing/all_services.template.html', {
         'DMServices': DMServices,
-        'DAServices': DAServices
+        'DAServices': DAServices,
     })
 
 

@@ -60,3 +60,11 @@ nav.shift ul li a:hover {
 .bg-footer{
     background-color:#FFB000!important;
 }
+
+.wrapper-prd{
+    width: 100%;
+}
+
+.prd-img{
+    width:100%;
+}
