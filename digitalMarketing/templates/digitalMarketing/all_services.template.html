@@ -32,13 +32,17 @@
     <br/>
 <!-- container //  -->
 </section>
+
+
+<!-- sect-heading -->
+<br/>
+
  <!-- !!! Banner  -->
 </section>
 <br/>
 <header class="section-heading">
 	<h3 class="index-title">Popular products</h3>
-</header><!-- sect-heading -->
-
+</header>
 <section>
     <div>
         <div class="row">
@@ -57,13 +61,13 @@
                         <div class="container">
                         <h4>{{x.item_name}}</h4>
 						<div class="price mt-1">${{x.price}}</div>
-                        {% if request.user.is_superuser %}
+                        <div class="price mt-1">{{x.short_desc}}</div>
+                            {% if request.user.is_superuser %}
                             <a href="{% url 'update_dmservice' DMService_id=x.id%}">Edit</a>
                             <a href="{% url 'delete_dmservice' DMService_id=x.id%}">Delete</a>
                             <a href="{% url 'add_to_cart' DMService_id=x.id%}">Add to cart</a>
                             {% else %}
-                            <a href="#">Details</a>
-                            {% endif %}
+                                {% endif %}
                         </div>
                     </figcaption>
                 </div>

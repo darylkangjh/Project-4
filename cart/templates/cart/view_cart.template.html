@@ -1,16 +1,43 @@
 {% extends 'base.template.html' %}
-
+{% load cloudinary %}
+{% load static%}
 {%block content %}
-<h1>Your Cart</h1>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<h1 class="index-title"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:orange;"></i>      Your Cart</h1>
 <ul>
     {%for key, i in shopping_cart.items %}
-        <li>
-            {{i.item_name}}<br/>
+    <div class="container">
+    <div class="row">
+            <div class="col md-3">
+            <h4>{{i.item_name}}</h4>
+            <br/>
             Price: ${{i.price}}
             <br/>
+            </div>
+            <div class="col md-9">
               <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' DMService_id=i.id %}">Remove</a>
-            
-        </li>
+            </div>
+            </div>
+                        <p>----------------------------------------------</p>
+    </div>
     {%endfor%}
 </ul>
+
+
+    <div class="container">
+    <div class="row">
+    <div class="col md-3">
+
+    </div>
+
+    <div class="col md-9">
+    <a class="btn btn-primary btn-sm" href="{% url 'checkout' %}"><i class="fa fa-shopping-basket" aria-hidden="true" style="color:white;"></i>
+Checkout</a>
+    </div>
+    </div>
+    </div>
 {%endblock %}

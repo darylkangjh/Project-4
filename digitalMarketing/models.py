@@ -40,7 +40,7 @@ class DMService(models.Model):
     # Many to many field below.    
     discount = models.ManyToManyField('Discount', blank=True)
     tag = TaggableManager(blank=True)
-    category = models.ManyToManyField('Category', blank=True)
+    category = models.ManyToManyField('Category', blank=False)
 
     # image field
     cover = CloudinaryField()
