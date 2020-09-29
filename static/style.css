@@ -16,6 +16,13 @@
     color: #FFB000!important;
 }
 
+.navbar-brand-white{
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 900;
+    font-size: 40px;
+    color: white!important;
+}
+
 .index-title{
     font-family: 'Roboto', sans-serif!important;
     font-weight: 900;

@@ -37,14 +37,14 @@
                         </li>
 
                         <li class="nav-item">
-                        <a class ="nav-link" href="{% url 'view_cart' %}">Shopping Cart ({{number_of_items}})</a>
+                        <a class ="nav-link" href="{% url 'view_cart' %}">Shopping Cart ({{number_of_items}})<i class="fa fa-shopping-cart ml-1" style="color:orange;" aria-hidden="true"></i></a>
                         </li>
                         <!-- Drop down menu will only be available to admin (superuser) to access -->
                         {% if request.user.is_superuser %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-star" style="color:orange;" aria-hidden="true"></i>Admin Panel
+                                Admin Panel<i class="fa fa-star" style="color:orange;" aria-hidden="true"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{% url 'admin:index' %}">Admin Page </a>
