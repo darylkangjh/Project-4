@@ -19,7 +19,7 @@
 .index-title{
     font-family: 'Roboto', sans-serif!important;
     font-weight: 900;
-    
+    color: #FFB000!important;  
 }
 .index-paragraph{
     font-family: 'Roboto', sans-serif!important;
@@ -33,8 +33,23 @@
     
 }
 
+h4 {
+    font-family: 'Roboto', sans-serif!important;
+    font-weight: 400!important;
+    color: #FFB000!important;
+}
+
 
 /* Shift effect */
 nav.shift ul li a:hover {
   color: #FFB000!important;
+}
+
+.lbox :hover{
+    color: #FFB000!important;
+}
+
+/* Footer Color */
+.bg-footer{
+    background-color:#FFB000!important;
 }
