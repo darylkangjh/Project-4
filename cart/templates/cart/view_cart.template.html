@@ -9,7 +9,8 @@
 <br/>
 <h1 class="index-title"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:orange;"></i>      Your Cart</h1>
 <ul>
-    {%for key, i in shopping_cart.items %}
+    {% for key, i in shopping_cart.items %}
+    
     <div class="container">
     <div class="row">
             <div class="col md-3">
@@ -31,7 +32,9 @@
     <div class="container">
     <div class="row">
     <div class="col md-3">
-
+    <div class="container">
+     <h2 class="index-title">    Total: $<u>{{total}}</u> </h2>
+    </div>
     </div>
 
     <div class="col md-9">

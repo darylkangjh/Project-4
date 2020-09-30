@@ -13,7 +13,7 @@ def add_to_cart(request, DMService_id):
         cart[DMService_id] = {
             'id': DMService_id,
             'item_name': dmservice.item_name,
-            'price': 99,
+            'price': f"{dmservice.price:.2f}",
         }
 
         request.session['shopping_cart'] = cart
@@ -27,9 +27,14 @@ def add_to_cart(request, DMService_id):
 
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
+    total = 0
 
+    for key, item in cart.items():
+        total += (float(item["price"])) 
+    
     return render(request, 'cart/view_cart.template.html', {
         'shopping_cart': cart,
+        'total': f"{total:.2f}"
     })
 
 
