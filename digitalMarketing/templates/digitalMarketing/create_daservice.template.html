@@ -5,13 +5,15 @@
 
 {% block content %}
 <br/>
-<h1>Create a Digital Asset here</h1>
+<h1 class="index-title">Create a Digital Asset here</h1>
 <br/>
-    <form method="POST">
+<div id="form">
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
     <input type="Submit" class="btn btn-primary"/>
     </form>
+</div>
 {% endblock %}
 
 {% block js %}

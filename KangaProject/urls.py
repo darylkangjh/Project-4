@@ -3,8 +3,6 @@ from django.urls import path, include
 
 
 
-
-
 # remember to name the route's patterns so we can link to navbar!
 urlpatterns = [
     # !!!! Indexed on NavBar for all to access
@@ -17,5 +15,5 @@ urlpatterns = [
     # !!!! Accessible only for super user (admin)
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls, name='dashboard'),
-    path('dmservice/', include('digitalMarketing.urls')),
+    path('products/', include('digitalMarketing.urls')),
     ]

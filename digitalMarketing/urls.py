@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete/<DMService_id>', digitalMarketing.views.delete_DMService, name = 'delete_dmservice'),
     path('all-assets', digitalMarketing.views.all_assets,
          name='all_assets'),   
+    path('create-daservice', digitalMarketing.views.create_daservice, name = 'create_daservice'),
 ]

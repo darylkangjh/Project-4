@@ -109,3 +109,20 @@ def all_assets(request):
         'all_daservices': all_daservices,
         'search_form': search_form,
     })
+
+def create_daservice(request):
+    if request.method == "POST":
+        create_form = DAServiceForm(request.POST)
+        if create_form.is_valid():
+            create_form.save()
+            messages.success(request, f"{create_form.cleaned_data['item_name']} has been created")
+            return redirect(reverse(all_assets))
+        else:
+                return render(request, "digitalMarketing/create_daservice.template.html",{
+                "form": create_form
+            })
+    else:
+        create_form = DAServiceForm()
+        return render(request, "digitalMarketing/create_daservice.template.html",{
+                "form": create_form
+            })
