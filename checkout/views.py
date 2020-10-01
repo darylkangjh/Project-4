@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, reverse, HttpResponse, get_object_or_404, redirect
 import os
 from django.conf import settings
 import stripe
@@ -32,7 +32,7 @@ def checkout(request):
     line_items = []
     all_item_ids = []
 
-    # go through each book in the shopping cart
+    # go through each item in the shopping cart
     for DMService_id, dmservice in cart.items():
         # retrieve the book by its id from the database
         DMService_model = get_object_or_404(DMService, pk=DMService_id)
@@ -47,29 +47,33 @@ def checkout(request):
         line_items.append(item)
         all_item_ids.append(str(DMService_model.id))
 
-    # get the current website
-    current_site = Site.objects.get_current()
+    if len(line_items)==0:
+        return redirect(reverse('view_cart'))
 
-    # get the domain name
-    domain = current_site.domain
-    
-    # create a payment session to represent the current transaction
-    session = stripe.checkout.Session.create(
-        payment_method_types=["card"],  # take credit cards
-        line_items=line_items,
-        client_reference_id=request.user.id,
-        metadata={
-            "all_item_ids": ",".join(all_item_ids)
-        },
-        mode="payment",
-        success_url=domain + reverse("checkout_success"),
-        cancel_url=domain + reverse("checkout_cancelled")
-    )
+    else:
+        # get the current website
+        current_site = Site.objects.get_current()
 
-    return render(request, "checkout/checkout.template.html", {
-        "session_id": session.id,
-        "public_key": settings.STRIPE_PUBLISHABLE_KEY
-    })
+        # get the domain name
+        domain = current_site.domain
+        
+        # create a payment session to represent the current transaction
+        session = stripe.checkout.Session.create(
+            payment_method_types=["card"],  # take credit cards
+            line_items=line_items,
+            client_reference_id=request.user.id,
+            metadata={
+                "all_item_ids": ",".join(all_item_ids)
+            },
+            mode="payment",
+            success_url=domain + reverse("checkout_success"),
+            cancel_url=domain + reverse("checkout_cancelled")
+        )
+
+        return render(request, "checkout/checkout.template.html", {
+            "session_id": session.id,
+            "public_key": settings.STRIPE_PUBLISHABLE_KEY
+        })
 
 
 @csrf_exempt
