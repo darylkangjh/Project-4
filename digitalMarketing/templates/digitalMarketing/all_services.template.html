@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row">
     <!-- ------------------------------------------------------------------------(query card) -->
-        <div class="card col-md-3">
+        <div class="card border-white col-md-3">
         <br/>
             <div>
                 <form method="GET">
@@ -66,13 +66,15 @@
                                 {% elif request.user.is_authenticated %}
                                 <a href="{% url 'add_to_cart' DMService_id=x.id%}"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>
                                 {% else %}
-                               <i class="fa fa-cart-plus fa-2x" aria-hidden="true" disabled></i>
+                                    <small><a class="nav-link" href="{% url 'account_login' %}">log into make a purchase</a></small>
                                 {% endif %}
                             </div>
                         </figcaption>
                     </div>
                 </div> 
                 {%endfor%}
+                
+
             </div> 
         </div> 
     </div>

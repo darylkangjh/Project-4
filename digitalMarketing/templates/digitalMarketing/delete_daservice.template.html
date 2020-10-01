@@ -1,0 +1,13 @@
+{% extends "base.template.html" %}
+
+{% block content %}
+{% load static%}
+ <h1>Delete {{DAServices.item_name}}</h1>
+    <p>Are you sure?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes"/>
+        <a href="{% url 'all_services' %}">No</a>
+    </form>
+
+{% endblock %}
