@@ -111,6 +111,7 @@ def all_assets(request):
     })
 
 def create_daservice(request):
+
     if request.method == "POST":
         create_form = DAServiceForm(request.POST)
         if create_form.is_valid():
@@ -126,3 +127,17 @@ def create_daservice(request):
         return render(request, "digitalMarketing/create_daservice.template.html",{
                 "form": create_form
             })
+
+def update_daservice(request):
+    daservice_to_update = get_object_or_404(DAService, pk=DAService_id)
+    if request.method == "POST":
+        update_form = DAServiceForm(request.POST, instance=daservice_to_update)
+        if update_form.is_valid():
+            update_form.save()
+            messages.success(request, f"{update_form.cleaned_data['item_name']} has been updated")
+            return redirect(reverse(all_assets))
+    else:
+        update_form = DAServiceForm(instance=daservice_to_update)
+        return render(request, "products/update_daservice.template.html", {
+            "form": update_form
+        })
