@@ -7,31 +7,28 @@ from django.db.models import Q
 # All Views here 
 
 def all_service(request):
-    # if request.GET:
-    #         queries = ~Q(pk__in=[])
-
-    #         # if a title is specified, add it to the query
-    #         if 'item_name' in request.GET and request.GET['item_name']:
-    #             item_name = request.GET['item_name']
-    #             queries = queries & Q(item_name__icontains=item_name)
-
-    #         # if a genre is specified, add it to the query
-    #         if 'category' in request.GET and request.GET['category']:
-    #             print("adding category")
-    #             category = request.GET['category']
-    #             queries = queries & Q(category__in=category)
-
-    #         # update the existing book found
-    #         dmservice = DMService.filter(queries)
-
-
-    # search_form=SearchForm(request.GET)
+    
     DMServices = DMService.objects.all()
-    DAServices = DAService.objects.all()
+    print(DMServices)
+    queries = ~Q(pk__in=[])
+
+    if request.GET:
+            # if a title is specified, add it to the query
+            if 'item_name' in request.GET and request.GET['item_name']:
+                queries = queries & Q(item_name__icontains=request.GET['item_name'])
+
+            # if a genre is specified, add it to the query
+            if 'category' in request.GET and request.GET['category']:
+                queries = queries & Q(category__in=request.GET['category'])
+
+
+    allDmservices=DMServices.filter(queries)
+    search_form=SearchForm()
+
+    # DAServices = DAService.objects.all()
     return render(request, 'digitalMarketing/all_services.template.html', {
-        'DMServices': DMServices,
-        'DAServices': DAServices,
-        # 'search_form': search_form,
+        'allDmservices': allDmservices,
+        'search_form': search_form,
     })
 
 
@@ -69,10 +66,13 @@ def update_DMService(request, DMService_id):
         })
 
     else:
-        dmservice_form = DMServiceForm(instance=dm_being_updated)
-        return render(request, 'digitalMarketing/update_dmservice.template.html',  {
-            "form": dmservice_form
-        })
+        if request.user.is_superuser:
+            dmservice_form = DMServiceForm(instance=dm_being_updated)
+            return render(request, 'digitalMarketing/update_dmservice.template.html',  {
+                "form": dmservice_form
+            })
+        else:
+            return HttpResponse('error')
 
 def delete_DMService(request, DMService_id):
     dms_to_delete = get_object_or_404(DMService, pk=DMService_id)
@@ -80,9 +80,13 @@ def delete_DMService(request, DMService_id):
         dms_to_delete.delete()
         return redirect(all_service)
     else:
-        return render(request, 'digitalMarketing/delete_dmservice.template.html', {
-                "DMServices": dms_to_delete
-            })
+        if request.user.is_superuser:
+            return render(request, 'digitalMarketing/delete_dmservice.template.html', {
+                    "DMServices": dms_to_delete
+                })
+
+        else:
+            return HttpResponse('error')
 
 # DAServices Views here
 #!!!... Create route for DaServices

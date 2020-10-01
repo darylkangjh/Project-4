@@ -7,6 +7,7 @@ from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import Purchase
+from django.contrib.auth.decorators import login_required
 endpoint_secret = os.environ.get('endpoint_secret')
 
 # Create your views here.
@@ -22,6 +23,7 @@ def checkout_cancelled(request):
     request.session['shopping_cart'] = {}
     return HttpResponse("Checkout cancelled")
 
+@login_required
 def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get('shopping_cart', {})
@@ -50,9 +52,8 @@ def checkout(request):
 
     # get the domain name
     domain = current_site.domain
-
+    
     # create a payment session to represent the current transaction
-    print(line_items)
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],  # take credit cards
         line_items=line_items,

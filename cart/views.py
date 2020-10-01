@@ -7,7 +7,7 @@ from digitalMarketing.models import DMService
 
 def add_to_cart(request, DMService_id):
     cart = request.session.get('shopping_cart', {})
-
+    
     if DMService_id not in cart:
         dmservice = get_object_or_404(DMService, pk=DMService_id)
         cart[DMService_id] = {

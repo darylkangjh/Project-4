@@ -68,3 +68,8 @@ nav.shift ul li a:hover {
 .prd-img{
     width:100%;
 }
+
+.card{
+    min-height: 300px!important;
+    margin:none!important;
+}
