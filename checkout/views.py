@@ -113,7 +113,6 @@ def handle_payment(session):
 
     for DMService_id in all_item_ids:
         DMService_model = get_object_or_404(DMService, pk=DMService_id)
-
         # create the purchase model
         purchase = Purchase()
         purchase.DMService_id = DMService_model
