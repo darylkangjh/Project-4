@@ -67,7 +67,9 @@
                                 {% if request.user.is_superuser %}
                                 <a href="{% url 'update_daservice' DAService_id=x.id%}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                                 <a href="{% url 'delete_daservice' DAService_id=x.id%}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                <a href="{% url 'add_to_dacart' DAService_id=x.id%}"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>
                                 {% elif request.user.is_authenticated %}
+                                <a href="{% url 'add_to_dacart' DAService_id=x.id%}"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></a>
                                 {% else %}
                                     <small><a class="nav-link" href="{% url 'account_login' %}">log into make a purchase</a></small>
                                 {% endif %}
