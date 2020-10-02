@@ -128,7 +128,7 @@ def create_daservice(request):
                 "form": create_form
             })
 
-def update_daservice(request):
+def update_daservice(request, DAService_id):
     daservice_to_update = get_object_or_404(DAService, pk=DAService_id)
     if request.method == "POST":
         update_form = DAServiceForm(request.POST, instance=daservice_to_update)
@@ -136,8 +136,30 @@ def update_daservice(request):
             update_form.save()
             messages.success(request, f"{update_form.cleaned_data['item_name']} has been updated")
             return redirect(reverse(all_assets))
-    else:
-        update_form = DAServiceForm(instance=daservice_to_update)
-        return render(request, "products/update_daservice.template.html", {
+        else:
+            return render(request, 'digitalMarketing/update_daservice.template.html', {
             "form": update_form
         })
+
+    else:
+        if request.user.is_superuser:
+            update_form = DAServiceForm(instance=daservice_to_update)
+            return render(request, 'digitalMarketing/update_daservice.template.html',  {
+                "form": update_form
+            })
+        else:
+            return HttpResponse('error')
+
+def delete_daservice(request, DAService_id):
+    das_to_delete = get_object_or_404(DAService, pk=DAService_id)
+    if request.method == 'POST':
+        das_to_delete.delete()
+        return redirect(all_assets)
+    else:
+        if request.user.is_superuser:
+            return render(request, 'digitalMarketing/delete_daservice.template.html', {
+                    "daservices": das_to_delete
+                })
+
+        else:
+            return HttpResponse('error')
