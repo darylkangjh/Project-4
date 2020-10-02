@@ -2,7 +2,7 @@ from django.shortcuts import render, reverse, HttpResponse, get_object_or_404, r
 import os
 from django.conf import settings
 import stripe
-from digitalMarketing.models import DMService
+from digitalMarketing.models import DMService, DAService
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -15,25 +15,28 @@ endpoint_secret = os.environ.get('endpoint_secret')
 # --------------------------------------------(Stripe code here)----------------------------------------
 def checkout_success(request):
     # Empty the shopping cart
-    request.session['shopping_cart'] = {}
+    request.session['da_shopping_cart'] = {}
+    request.session['dm_shopping_cart'] = {}
     return HttpResponse("Checkout success")
 
 def checkout_cancelled(request):
     # Empty the shopping cart
-    request.session['shopping_cart'] = {}
+    request.session['da_shopping_cart'] = {}
+    request.session['dm_shopping_cart'] = {}
     return HttpResponse("Checkout cancelled")
 
 @login_required
 def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    cart = request.session.get('shopping_cart', {})
+    dm_cart = request.session.get('dm_shopping_cart', {})
+    da_cart = request.session.get('da_shopping_cart', {})
 
     # create our line items
     line_items = []
     all_item_ids = []
 
     # go through each item in the shopping cart
-    for DMService_id, dmservice in cart.items():
+    for DMService_id, dmservice in dm_cart.items():
         # retrieve the book by its id from the database
         DMService_model = get_object_or_404(DMService, pk=DMService_id)
         # Line item here
@@ -47,6 +50,19 @@ def checkout(request):
         line_items.append(item)
         all_item_ids.append(str(DMService_model.id))
 
+    for DAService_id, daservice in da_cart.items():
+        # retrieve the book by its id from the database
+        DAService_model = get_object_or_404(DAService, pk=DAService_id)
+        # Line item here
+        item = {
+            "name": DAService_model.item_name,
+            "amount": int(DAService_model.price * 100),
+            "quantity": 1,
+            "currency": "sgd",
+        }
+
+        line_items.append(item)
+        all_item_ids.append(str(DAService_model.id))
     if len(line_items)==0:
         return redirect(reverse('view_cart'))
 
@@ -111,10 +127,18 @@ def handle_payment(session):
     all_item_ids = session["metadata"]["all_item_ids"].split(",")
 
 
-    for DMService_id in all_item_ids:
-        DMService_model = get_object_or_404(DMService, pk=DMService_id)
-        # create the purchase model
-        purchase = Purchase()
-        purchase.DMService_id = DMService_model
-        purchase.user_id = user
-        purchase.save()
+    # for DMService_id in all_item_ids:
+    #     DMService_model = get_object_or_404(DMService, pk=DMService_id)
+    #     # create the purchase model
+    #     purchase = Purchase()
+    #     purchase.DMService_id = DMService_model
+    #     purchase.user_id = user
+    #     purchase.save()
+
+    # for DAService_id in all_item_ids:
+    #     DAService_model = get_object_or_404(DAService, pk=DAService_id)
+    #     # create the purchase model
+    #     purchase = Purchase()
+    #     purchase.DAService_id = DAService_model
+    #     purchase.user_id = user
+    #     purchase.save()

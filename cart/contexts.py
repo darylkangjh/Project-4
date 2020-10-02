@@ -1,7 +1,11 @@
 def cart_contents(request):
 
-    cart=request.session.get("shopping_cart", {})
+    da_cart=request.session.get("da_shopping_cart", {})
+    dm_cart=request.session.get("dm_shopping_cart", {})
+    
+
     return {
-        'shopping_cart':cart,
-        'number_of_items':len(cart)
+        'da_shopping_cart':da_cart,
+        'dm_shopping_cart':dm_cart,
+        'number_of_items':len(dm_cart) + len(da_cart)
     }

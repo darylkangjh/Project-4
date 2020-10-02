@@ -43,8 +43,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'view_cart' %}">Shopping Cart
-							({{number_of_items}})<i class="fa fa-shopping-cart ml-1" style="color:orange;" aria-hidden="true"></i></a>
+						<a class="nav-link" href="{% url 'view_cart' %}">Shopping Cart ({{number_of_items}})<i class="fa fa-shopping-cart ml-1" style="color:orange;" aria-hidden="true"></i></a>
 					</li>
 				
 					{% if request.user.is_superuser %}

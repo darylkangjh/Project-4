@@ -9,7 +9,7 @@
 <br/>
 <h1 class="index-title"><i class="fa fa-shopping-cart" aria-hidden="true" style="color:orange;"></i>      Your Cart</h1>
 
-{% for key, i in shopping_cart.items %}
+{% for key, i in dm_cart.items %}
 <div class="container">
 <div class="row">
         <div class="col md-3">
@@ -19,13 +19,29 @@
         <br/>
         </div>
         <div class="col md-9">
-            <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' DMService_id=i.id %}">Remove</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'remove_from_dm_cart' DMService_id=i.id %}">Remove</a>
         </div>
         </div>
                     <p>----------------------------------------------</p>
 </div>
 {%endfor%}
 
+{% for key, i in da_cart.items %}
+<div class="container">
+<div class="row">
+        <div class="col md-3">
+        <h4>{{i.item_name}}</h4>
+        <br/>
+        Price: ${{i.price}}
+        <br/>
+        </div>
+        <div class="col md-9">
+            <a class="btn btn-danger btn-sm" href="{% url 'remove_from_da_cart' DAService_id=i.id %}">Remove</a>
+        </div>
+        </div>
+                    <p>----------------------------------------------</p>
+</div>
+{%endfor%}
 <div class="container">
 <div class="row">
 <div class="col md-3">
