@@ -21,7 +21,7 @@ def add_to_dm_cart(request, DMService_id):
         return redirect(reverse('all_services'))
 
     else:
-        request.session['dm_shopping_cart'] = cart
+        request.session['dm_shopping_cart'] = dm_cart
         return redirect(reverse('all_services'))
 
 def add_to_da_cart(request, DAService_id):
