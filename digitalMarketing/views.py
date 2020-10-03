@@ -70,7 +70,9 @@ def update_DMService(request, DMService_id):
                 "form": dmservice_form
             })
         else:
-            return HttpResponse('error')
+            return render(request, 'digitalMarketing/update_dmservice.template.html', {
+            "form": dmservice_form
+        })
 
 def delete_DMService(request, DMService_id):
     dms_to_delete = get_object_or_404(DMService, pk=DMService_id)
@@ -84,7 +86,7 @@ def delete_DMService(request, DMService_id):
                 })
 
         else:
-            return HttpResponse('error')
+            return redirect(reverse(all_assets))
 
 # --------------------------------------------------(Digital Assets)
 def all_assets(request):
@@ -148,7 +150,7 @@ def update_daservice(request, DAService_id):
                 "form": update_form
             })
         else:
-            return HttpResponse('error')
+            return redirect(reverse(all_assets))
 
 def delete_daservice(request, DAService_id):
     das_to_delete = get_object_or_404(DAService, pk=DAService_id)
@@ -162,4 +164,4 @@ def delete_daservice(request, DAService_id):
                 })
 
         else:
-            return HttpResponse('error')
+            return redirect(reverse(all_assets))

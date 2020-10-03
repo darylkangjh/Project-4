@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from .models import Purchase
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 endpoint_secret = os.environ.get('endpoint_secret')
 
 # Create your views here.
@@ -17,13 +19,15 @@ def checkout_success(request):
     # Empty the shopping cart
     request.session['da_shopping_cart'] = {}
     request.session['dm_shopping_cart'] = {}
-    return HttpResponse("Checkout success")
+    messages.success(request, f"Your order has been created")
+    return redirect(reverse('index'))
 
 def checkout_cancelled(request):
     # Empty the shopping cart
     request.session['da_shopping_cart'] = {}
     request.session['dm_shopping_cart'] = {}
-    return HttpResponse("Checkout cancelled")
+    messages.error(request, f"Your order has been cancelled")
+    return redirect(reverse('index'))
 
 @login_required
 def checkout(request):
