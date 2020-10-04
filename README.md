@@ -52,8 +52,19 @@ The site owner would ideally use this platform to allow clients to make direct p
 *  
 
 ### Scope
+* Content: 
+    * Text 
+    * Icons 
+    * Banner Images
+    * Placeholder work images 
+* Functional: 
+    * Search function for name of service 
+    * Search function for category 
+
 
 ### Structure
+[(/static/1.jpg]
+
 
 #### Skeleton
 
@@ -79,7 +90,7 @@ To deploy on Heroku:
         * DATABASE_URL
         * EMAIL_HOST_PASS
         * EMAIL_HOST_USER
-        * endpoint_secret
+        * endpoint_secret (for Stripe)
         * SECRET_KEY
         * STRIPE_PUBLISHABLE_KEY
         * STRIPE_SECRET_KEY
