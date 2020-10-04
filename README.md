@@ -63,7 +63,8 @@ The site owner would ideally use this platform to allow clients to make direct p
 
 
 ### Structure
-[(/static/1.jpg]
+![Colour scheme](1.jpg "Colour scheme")
+
 
 
 #### Skeleton
