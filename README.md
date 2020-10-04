@@ -49,7 +49,6 @@ The site owner would ideally use this platform to allow clients to make direct p
 #### Registered User (user) Goals 
 * The site should attract user to make purchases. 
 * By viewing the brief portfolio on the index page, the user can choose to purchase services or ready made assets such as stock photo off the platform. 
-*  
 
 ### Scope
 * Content: 
@@ -61,14 +60,20 @@ The site owner would ideally use this platform to allow clients to make direct p
     * Search function for name of service 
     * Search function for category 
 
+## Features left to implement 
+
 
 ### Structure
 ![Skeleton](skeleton.png)
 
-
-
+The 3-click rule was applied for UX strategy when designing the structure of the site. Despite numerous prototyping to work around the steps for payment methods, the best UX strategy was eventually to allow a redirect to stripe to make payment there. 
+Users are still able to get from index page to check out page in 3-steps. 
 
 #### Skeleton
+With inspiration from SunBird Creative, I decided to follow a simple visual structure for the site's skeleton. The reason was due to the work and products being the center of focus rather than unconventional layout or designs. 
+![Index Skeleton](indexwire.png)
+
+
 
 #### Surface
 
