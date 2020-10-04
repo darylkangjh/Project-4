@@ -24,13 +24,14 @@ To Log in as a super user:
 | Password | pass123word            |
 
 ### Privileges of a super user
-\* Able to access navbar admin tab 
+<ol>
+<li> Able to access navbar admin tab  </li>
 \* Able to access django admin panel via the shortcut admin tab 
 \* Able to create Services products 
 \* Able to creat Assets products 
 \* Able to delete all products 
 \* Able to edit all products 
-
+</ol>
 
 
 ## Technologies Used 
