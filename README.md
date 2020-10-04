@@ -18,7 +18,7 @@ Visit the site [here](https://dk-kanga.herokuapp.com/)
 * Able to add to cart
 * Able to checkout purchases 
 
-To Log in as a super user: 
+### To Log in as a super user: 
 | Username | kolipop@mailinator.com |
 |----------|------------------------|
 | Password | pass123word            |
@@ -32,13 +32,58 @@ To Log in as a super user:
 * Able to delete all products 
 * Able to edit all products 
 
+## UX 
+### Strategy - User Story
+There are 03 types of users for this website 
+* Owner (superuser)
+* Registered User (user)
+* Public (anonymous user)
 
-## Technologies Used 
-1. Django-Taggit for tagging module https://django-taggit.readthedocs.io/en/latest/getting_started.html#
-2. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
+#### Owner (superuser) Goals 
+* List & sell digital marketing and related services via the platform 
+* Delete irrelevant products 
+* Edit products that change in scope or description 
 
-## Credits 
-1. GitIgnore template by www.toptal.com/developers/gitignore/api/django.
+The site owner would ideally use this platform to allow clients to make direct purchases for services he provides. This is more efficient compared to traditional email quotation and offers pricing transparency. 
+
+#### Registered User (user) Goals 
+* The site should attract user to make purchases. 
+* By viewing the brief portfolio on the index page, the user can choose to purchase services or ready made assets such as stock photo off the platform. 
+*  
+
+### Scope
+
+### Structure
+
+#### Skeleton
+
+#### Surface
+
+## Database Design 
+
+
+## Deployment 
+This website is deployed on Heroku. The URL for the deployed website is https://dk-kanga.herokuapp.com/
+
+To deploy on Heroku:
+* Download or Clone the master branch from github, https://github.com/darylkangjh/Project-4
+* To list all the requirements in requirements.txt, run the following command in terminal:
+    * pip3 freeze --local > requirements.txt
+    * Set Debug to False
+    * Procfile need to be created to run gunicorn upon deployment
+    * Git push to Heroku Master after all the documents are properly set up
+    * All public keys and private keys for the following need to be added to in Heroku Config Vars settings:
+        * CLOUDINARY_API_KEY
+        * CLOUDINARY_API_SECRET
+        * CLOUDINARY_CLOUD_NAME
+        * DATABASE_URL
+        * EMAIL_HOST_PASS
+        * EMAIL_HOST_USER
+        * endpoint_secret
+        * SECRET_KEY
+        * STRIPE_PUBLISHABLE_KEY
+        * STRIPE_SECRET_KEY
+
 
 
 ## Testing 
@@ -77,3 +122,24 @@ Manual testing was done to ensure the front-end routes are protected and allowed
 | 26   | Search test for asset                                                                      | "Monkey" entered into Item Name should only display "Space Monkey".                                                                                                | As expected |
 | 27   | Add to cart                                                                                | Items added to cart from services and assets will be totalled up as per items                                                                                      | As expected |
 | 28   | Checkout                                                                                   | Upon checkout and redirect to stripe, payment made in test mode should reflect a successful webhook on stripe                                                      | As expected |
+
+## Technologies Used 
+1. HTML, CSS & Javascript 
+2. Bootstrap 
+3. Python 
+4. SQLite (during development)
+5. Postgres (when deployed onto Heroku)
+6. Heroku (deployment)
+7. Django-Taggit for tagging module https://django-taggit.readthedocs.io/en/latest/getting_started.html#
+8. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
+9. Ekkolightbox (https://cdnjs.com/libraries/ekko-lightbox)
+
+## Credits & Acknowledgement 
+1. GitIgnore template by www.toptal.com/developers/gitignore/api/django.
+2. Favicon icons 
+3. Google Fonts 
+4. Freepik (Premium) - No attribution required for assets used
+5. Bootsnip (Template inspiration for search panel)
+6. Sunbird creative (for providing index page image placeholder)
+7. Paul Chor, Code Insitute & Trent Global College
+8. Andrew Sui & Fareez (for advise and help)
