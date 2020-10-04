@@ -60,9 +60,6 @@ The site owner would ideally use this platform to allow clients to make direct p
     * Search function for name of service 
     * Search function for category 
 
-## Features left to implement 
-
-
 ### Structure
 ![Skeleton](skeleton.png)
 
@@ -89,6 +86,7 @@ Typography used was Roboto and Calibri.
 ER Diagram shows the initial design for the backend of the website. A discount entity was present, but, as mentioned above, due to time constraints, it was omitted in this version. Discount entity will be implemented for future updates to encourage users to make purchases with a discount coupon. 
 
 ![Logic Diagram](basicerd.png)
+The logic diagram above shows the flow of information and the backend architecture
 
 ## Deployment 
 This website is deployed on Heroku. The URL for the deployed website is https://dk-kanga.herokuapp.com/
@@ -115,6 +113,14 @@ To deploy on Heroku:
 
 
 ## Testing 
+
+### Automated Testing 
+Automated testing was done for: 
+* Create route for DMServices
+* Delete route for DMServices
+* Create route for DAServices
+* Delete route for DAServices
+* Route to show all DMServices 
 
 ### Manual Testing 
 
@@ -151,6 +157,15 @@ Manual testing was done to ensure the front-end routes are protected and allowed
 | 27   | Add to cart                                                                                | Items added to cart from services and assets will be totalled up as per items                                                                                      | As expected |
 | 28   | Checkout                                                                                   | Upon checkout and redirect to stripe, payment made in test mode should reflect a successful webhook on stripe                                                      | As expected |
 
+## Methods used programming 
+1. Use of a environment file (.env) to store sensitive information together with a GitIgnore file to prevent pushing said information to github. 
+2. GitHub was use for source control of code.
+3. Heroku was chosen to deploy the project. 
+
+## Features left to implement 
+1. A discount field to be added so that we can create vouchers for ease of application to the product. Discount field is already a model within the application. Next step is to integrate the discount field to the code. 
+2. A static portfolio page displaying videos of the work done. This page will be a brochure for clients who would like to find out more about what we do. 
+
 ## Technologies Used 
 1. HTML, CSS & Javascript 
 2. Bootstrap 
@@ -159,15 +174,22 @@ Manual testing was done to ensure the front-end routes are protected and allowed
 5. Postgres (when deployed onto Heroku)
 6. Heroku (deployment)
 7. Django-Taggit for tagging module https://django-taggit.readthedocs.io/en/latest/getting_started.html#
-8. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
-9. Ekkolightbox (https://cdnjs.com/libraries/ekko-lightbox)
+8. Django Crispy Forms for styling Forms
+9. Cloudinary for storing images 
+10. Stripe for handling payment 
+11. Whitenise to manage static file 
+12. Gunicorn 
+13. Gitpod online IDE
+14. Google Fonts
+15. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
+16. Ekkolightbox (https://cdnjs.com/libraries/ekko-lightbox)
 
 ## Credits & Acknowledgement 
 1. GitIgnore template by www.toptal.com/developers/gitignore/api/django.
 2. Favicon icons 
 3. Google Fonts 
 4. Freepik (Premium) - No attribution required for assets used
-5. Bootsnip (Template inspiration for search panel)
-6. Sunbird creative (for providing index page image placeholder)
+5. Bootsnip (Template inspiration for search panel) 
+6. Sunbird creative (for providing index page image placeholder) https://www.sunbirdcreative.com/
 7. Paul Chor, Code Insitute & Trent Global College
 8. Andrew Sui & Fareez (for advise and help)
