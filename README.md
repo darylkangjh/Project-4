@@ -63,7 +63,8 @@ The site owner would ideally use this platform to allow clients to make direct p
 
 
 ### Structure
-!(report/screenshots/skeleton.jpg "Skeleton")
+![Skeleton](skeleton.png)
+
 
 
 
