@@ -70,10 +70,13 @@ The 3-click rule was applied for UX strategy when designing the structure of the
 Users are still able to get from index page to check out page in 3-steps. 
 
 #### Skeleton
+#### Index Page
 With inspiration from SunBird Creative, I decided to follow a simple visual structure for the site's skeleton. The reason was due to the work and products being the center of focus rather than unconventional layout or designs. 
 ![Index Skeleton](indexwire.png)
 
-
+#### Sales Page (Similar for Digital Assets and Services e-commerce page)
+Sales page structure is clean and easy to navigate. I wanted a side search column for people to search for the types of product they are looking for.
+![Index Skeleton](saleswire.png)
 
 #### Surface
 
