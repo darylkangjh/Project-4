@@ -15,8 +15,8 @@ Visit the site [here](https://dk-kanga.herokuapp.com/)
 | Password | pass123word                |
 
 ### Privileges of a regular user
-\* Able to add to cart
-\* Able to checkout purchases 
+* Able to add to cart
+* Able to checkout purchases 
 
 To Log in as a super user: 
 | Username | kolipop@mailinator.com |
@@ -24,14 +24,13 @@ To Log in as a super user:
 | Password | pass123word            |
 
 ### Privileges of a super user
-<ol>
-<li> Able to access navbar admin tab  </li>
-\* Able to access django admin panel via the shortcut admin tab 
-\* Able to create Services products 
-\* Able to creat Assets products 
-\* Able to delete all products 
-\* Able to edit all products 
-</ol>
+
+* Able to access navbar admin tab  
+* Able to access django admin panel via the shortcut admin tab 
+* Able to create Services products 
+* Able to creat Assets products 
+* Able to delete all products 
+* Able to edit all products 
 
 
 ## Technologies Used 
