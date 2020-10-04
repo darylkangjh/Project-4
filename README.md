@@ -166,6 +166,27 @@ Manual testing was done to ensure the front-end routes are protected and allowed
 2. GitHub was use for source control of code.
 3. Heroku was chosen to deploy the project. 
 
+## Features
+### Account Authentication
+Annonymous users may sign up for an account so they may make direct purchase on our site. 
+
+### Shopping Cart to make purchase
+Shopping cart can accumulate products from Services and Assets and give a grand total before checkout for consideration. 
+
+### Create, Edit and Delete Services and Assets on page as a superuser
+Superuser can easily edit/delete individual product on the product card. 
+
+### Search Functions
+Users may key in keywords on the search bar and make a search for the services they are looking for. They may also search base on the category of the products.
+
+### Email verification
+When a user sign up, an email verification will be sent to their email. Only when they confirm will they be added as an user. 
+For testing purposes, you may use https://www.mailinator.com/ to create a temporary email. 
+
+### Required form fields validation 
+There is form validation provided by Django to set certain fields as required. This prevents missing out on fields which are essential for the website. 
+
+
 ## Features left to implement 
 1. A discount field to be added so that we can create vouchers for ease of application to the product. Discount field is already a model within the application. Next step is to integrate the discount field to the code. 
 2. A static portfolio page displaying videos of the work done. This page will be a brochure for clients who would like to find out more about what we do. 
