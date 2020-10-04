@@ -79,8 +79,13 @@ Sales page structure is clean and easy to navigate. I wanted a side search colum
 ![Index Skeleton](saleswire.png)
 
 #### Surface
+Only 3 colors were used for the site. Mustard yellow, Light Grey and White. These color are consistent with the brand identity of KANGA. 
+Typography used was Roboto and Calibri. 
+
+
 
 ## Database Design 
+![ER Diagram](erd.png)
 
 
 ## Deployment 
