@@ -86,7 +86,9 @@ Typography used was Roboto and Calibri.
 
 ## Database Design 
 ![ER Diagram](erd.png)
+ER Diagram shows the initial design for the backend of the website. A discount entity was present, but, as mentioned above, due to time constraints, it was omitted in this version. Discount entity will be implemented for future updates to encourage users to make purchases with a discount coupon. 
 
+![Logic Diagram](basicerd.png)
 
 ## Deployment 
 This website is deployed on Heroku. The URL for the deployed website is https://dk-kanga.herokuapp.com/
