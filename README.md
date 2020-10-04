@@ -7,6 +7,13 @@ KANGA hopes to use this website to acquire new sales through it's e-commerce pla
 
 Visit the site [here](https://dk-kanga.herokuapp.com/) 
 
+## How to demo the project 
+
+To Log in as a regular user: 
+| Username | regularuser@mailinator.com |
+|----------|----------------------------|
+| Password | pass123word                |
+
 ## Technologies Used 
 1. Django-Taggit for tagging module https://django-taggit.readthedocs.io/en/latest/getting_started.html#
 2. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
