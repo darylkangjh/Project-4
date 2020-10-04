@@ -50,6 +50,10 @@ The site owner would ideally use this platform to allow clients to make direct p
 * The site should attract user to make purchases. 
 * By viewing the brief portfolio on the index page, the user can choose to purchase services or ready made assets such as stock photo off the platform. 
 
+#### Annonymous User Goals 
+* To view projects and the portfolio of Kanga Design.
+* Showcase digital assets and our ability to produce quality assets for purchase. 
+
 ### Scope
 * Content: 
     * Text 
