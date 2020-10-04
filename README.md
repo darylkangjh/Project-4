@@ -65,7 +65,7 @@ The site owner would ideally use this platform to allow clients to make direct p
     * Search function for category 
 
 ### Structure
-![Skeleton](skeleton.png)
+![Skeleton](image/skeleton.png)
 
 The 3-click rule was applied for UX strategy when designing the structure of the site. Despite numerous prototyping to work around the steps for payment methods, the best UX strategy was eventually to allow a redirect to stripe to make payment there. 
 Users are still able to get from index page to check out page in 3-steps. 
@@ -73,11 +73,11 @@ Users are still able to get from index page to check out page in 3-steps.
 #### Skeleton
 #### Index Page
 With inspiration from SunBird Creative, I decided to follow a simple visual structure for the site's skeleton. The reason was due to the work and products being the center of focus rather than unconventional layout or designs. 
-![Index Skeleton](indexwire.png)
+![Index Skeleton](image/indexwire.png)
 
 #### Sales Page (Similar for Digital Assets and Services e-commerce page)
 Sales page structure is clean and easy to navigate. I wanted a side search column for people to search for the types of product they are looking for.
-![Index Skeleton](saleswire.png)
+![Index Skeleton](image/saleswire.png)
 
 #### Surface
 Only 3 colors were used for the site. Mustard yellow, Light Grey and White. These color are consistent with the brand identity of KANGA. 
@@ -86,10 +86,10 @@ Typography used was Roboto and Calibri.
 
 
 ## Database Design 
-![ER Diagram](erd.png)
+![ER Diagram](image/erd.png)
 ER Diagram shows the initial design for the backend of the website. A discount entity was present, but, as mentioned above, due to time constraints, it was omitted in this version. Discount entity will be implemented for future updates to encourage users to make purchases with a discount coupon. 
 
-![Logic Diagram](basicerd.png)
+![Logic Diagram](image/basicerd.png)
 The logic diagram above shows the flow of information and the backend architecture
 
 ## Deployment 
