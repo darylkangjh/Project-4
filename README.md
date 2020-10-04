@@ -9,10 +9,29 @@ Visit the site [here](https://dk-kanga.herokuapp.com/)
 
 ## How to demo the project 
 
-To Log in as a regular user: 
+### To Log in as a regular user: 
 | Username | regularuser@mailinator.com |
 |----------|----------------------------|
 | Password | pass123word                |
+
+### Privileges of a regular user
+\* Able to add to cart
+\* Able to checkout purchases 
+
+To Log in as a super user: 
+| Username | kolipop@mailinator.com |
+|----------|------------------------|
+| Password | pass123word            |
+
+### Privileges of a super user
+\* Able to access navbar admin tab 
+\* Able to access django admin panel via the shortcut admin tab 
+\* Able to create Services products 
+\* Able to creat Assets products 
+\* Able to delete all products 
+\* Able to edit all products 
+
+
 
 ## Technologies Used 
 1. Django-Taggit for tagging module https://django-taggit.readthedocs.io/en/latest/getting_started.html#
